@@ -1,0 +1,531 @@
+@font-face {
+  font-family: "open sans";
+  src: url(font/OpenSans-Medium.ttf);
+  font-weight: 500;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-image: url(./images/hand.webp);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  font-family: "open sans";
+}
+.phone {
+  width: 400px;
+  height: 650px;
+  border-radius: 25px;
+  transition: 0.3s;
+  margin-top: 1rem;
+  background-color: black;
+  color: white;
+  box-shadow: 2px -2px 2px dodgerblue, -2px -2px 2px dodgerblue,
+    0px -2px 2px dodgerblue;
+  position: relative;
+  overflow: hidden;
+}
+.phone-shape {
+  width: 50%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  background-color: rgb(33, 32, 32);
+  border-radius: 20px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+}
+.phone-camera {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  border: thin solid dodgerblue;
+  border-bottom-color: rgba(30, 143, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.phone-speaker {
+  width: 5rem;
+  height: 0.5rem;
+  border-radius: 20px;
+  border: thin solid dodgerblue;
+  border-bottom-color: rgba(30, 143, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.time {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  z-index: 10;
+}
+.charge {
+  width: 20px;
+  height: 10px;
+  border-radius: 3px;
+  background-color: green;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  z-index: 10;
+  font-weight: bold;
+}
+.charge:before {
+  content: "";
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: green;
+  position: absolute;
+  top: 50%;
+  right: -2.5px;
+  transform: translate(0, -50%);
+}
+.wifi-wrapper {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  z-index: 10;
+}
+.wave {
+  display: inline-block;
+  border: 3px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  border-style: solid;
+  margin: 5px;
+}
+.waveStrength-3 .wv4.wave {
+  border-top-color: darkgray;
+}
+.main-home {
+  width: 100%;
+  height: 100%;
+  background-image: url(./images/bg.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.icons {
+  width: 100%;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.row-icons {
+  width: 90%;
+  height: 6.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  padding: 0.5rem;
+}
+.main-home .box-img {
+  width: 5rem;
+  height: 5rem;
+}
+.btn-main-app {
+  background-color: inherit;
+  color: white;
+}
+.main-home .box-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: black;
+  border-radius: 10px;
+}
+.main-home .box-img figcaption,
+.btn-main-app h2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+.btn-main-app h2 {
+  margin-top: 0.5rem;
+}
+.main-logo {
+  width: 100%;
+  height: 5rem;
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+.main-app {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)),
+    url(./images/bg-my-app.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  scale: 0;
+  transition: 0.3s;
+  transform-origin: center;
+}
+.main-app-cover {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+}
+.page-contact-with-us {
+  margin-top: 4rem;
+  padding: 1rem;
+}
+.page-contact-with-us h1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+}
+.email-Token {
+  font-style: italic;
+}
+.contact-us-form {
+  margin: 2rem 0;
+}
+.box-message {
+  width: 100%;
+  height: 12rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.box-message textarea {
+  height: 80%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: inherit;
+  resize: none;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+}
+.error-contact {
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: red;
+}
+.page-contact-with-us label {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+.btn-exit-account {
+  background-color: inherit;
+  color: dodgerblue;
+  font-style: italic;
+}
+/* ========= */
+.btns-wrapper {
+  width: 100%;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btns {
+  width: 10rem;
+  height: 3rem;
+  background-color: dodgerblue;
+  border-radius: 30px;
+  display: flex;
+  position: relative;
+  transition: 0.3s;
+}
+.btn-login {
+  width: 50%;
+  height: 100%;
+  border-radius: 30px;
+  background-color: transparent;
+  color: lightgray;
+}
+.btn-register {
+  width: 50%;
+  height: 100%;
+  border-radius: 30px;
+  background-color: transparent;
+  color: lightgray;
+}
+.btn-checked {
+  width: 50%;
+  height: 100%;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgb(115, 115, 239);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: 0.3s;
+}
+
+/* Forms */
+.forms {
+  width: 200%;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0%, -50%);
+  transition: 0.3s;
+}
+.login-form {
+  width: 100%;
+  padding: 1rem;
+}
+.regForm {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  transform-origin: left top;
+  transition: 1s;
+}
+.formName-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.wrapper-row {
+  position: relative;
+  overflow: hidden;
+}
+.box {
+  width: 100%;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+.box label {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+}
+.box input {
+  grid-area: 1 / 2;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  padding: 0 0.5rem;
+}
+.box p {
+  height: 1rem;
+  grid-area: 2 /2;
+  color: rgb(230, 23, 23);
+  font-size: 0.7rem;
+}
+.eyes-box {
+  height: 38%;
+  position: absolute;
+  top: 0%;
+  right: 2%;
+  right: 0;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#opened-eye-pass-register,
+#opened-eye-confirm-pass-register,
+#opened-eye-pass-login {
+  cursor: pointer;
+}
+#closed-eye-pass-register,
+#closed-eye-confirm-pass-register,
+#closed-eye-pass-login {
+  cursor: pointer;
+  display: none;
+}
+#light-password-register,
+#light-confirm-password-register,
+#light-password-login {
+  width: 11.5rem;
+  height: 20px;
+  background-color: rgba(30, 143, 255, 0.4);
+  position: absolute;
+  top: 0;
+  right: 0;
+  clip-path: polygon(0 0, 0 100%, 90% 50%);
+  display: none;
+}
+
+.box-show {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 1s;
+  background-color: black;
+  border: 5px solid #000;
+}
+button[type="submit"] {
+  width: 5rem;
+  height: 3rem;
+  border-radius: 10px;
+  background-color: dodgerblue;
+  color: white;
+  border: none;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: pointer;
+  border-bottom-left-radius: 0;
+}
+button[type="submit"]::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: white;
+  border-radius: 10px;
+}
+button[type="submit"]:hover {
+  color: black;
+  font-weight: bold;
+}
+button[type="submit"]:hover::before {
+  animation: btnBeforeAnimation 0.3s ease-in-out forwards;
+}
+@keyframes btnBeforeAnimation {
+  to {
+    width: 95%;
+  }
+}
+
+button[type="submit"]::after {
+  content: "";
+  width: 100%;
+  height: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(22, 101, 181, 0.5);
+  border-radius: 8px;
+  border-bottom-left-radius: 0;
+}
+button[type="submit"]:hover::after {
+  animation: btnAfterAnimation 0.3s 0.3s ease-in-out forwards;
+}
+
+@keyframes btnAfterAnimation {
+  to {
+    height: 100%;
+  }
+}
+
+.message-box {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 143, 255, 0.412);
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  scale: 0;
+  transform-origin: center;
+  transition: 0.3s;
+}
+.message {
+  width: 70%;
+  height: 30%;
+  background-color: white;
+  border-radius: 1rem;
+  color: black;
+  padding: 1rem;
+  cursor: auto;
+}
+.message-header {
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: dodgerblue;
+  margin-bottom: 1rem;
+}
+.message-text {
+  width: 100%;
+}
+.btns-group {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.btn-cancel,
+.btn-ok {
+  width: 50%;
+  height: 100%;
+  color: white;
+  background-color: brown;
+  transition: 0.3s;
+}
+.btn-exit {
+  width: 50%;
+  height: 100%;
+  background-color: green;
+  transition: 0.3s;
+}
+.btn-cancel:hover,
+.btn-exit:hover,
+.btn-ok:hover {
+  font-size: 1.1rem;
+}

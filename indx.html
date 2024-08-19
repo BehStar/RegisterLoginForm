@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Behnoosh Setareh" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register and Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="phone">
+      <!-- phone shape -->
+      <div class="phone-shape">
+        <div class="phone-camera"></div>
+        <div class="phone-speaker"></div>
+      </div>
+      <!-- data phone -->
+      <div class="data-phone">
+        <time class="time"></time>
+        <div class="charge">100</div>
+        <!-- wifi -->
+        <div class="wifi-wrapper">
+          <div class="waveStrength-3">
+            <div class="wv3 wave">
+              <div class="wv2 wave">
+                <div class="wv1 wave"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main Home -->
+      <div class="main-home">
+        <div class="icons">
+          <figure class="box-img">
+            <img src="./images/mail.png" />
+            <figcaption>Mail</figcaption>
+          </figure>
+          <figure class="box-img">
+            <img src="./images/message.png" />
+            <figcaption>message</figcaption>
+          </figure>
+          <figure class="box-img">
+            <img src="./images/safari.png" />
+            <figcaption>Safari</figcaption>
+          </figure>
+          <figure class="box-img">
+            <img src="./images/photos.png" />
+            <figcaption>photos</figcaption>
+          </figure>
+          <button class="box-img btn-main-app">
+            <img src="./images/my-app.png" />
+            <figcaption>My App</figcaption>
+          </button>
+        </div>
+        <div class="row-icons">
+          <figure class="box-img">
+            <img src="./images/phone.png" />
+          </figure>
+          <figure class="box-img">
+            <img src="./images/message.png" />
+          </figure>
+          <figure class="box-img">
+            <img src="./images/twitter.png" />
+          </figure>
+          <figure class="box-img">
+            <img src="./images/apple-music.png" />
+          </figure>
+        </div>
+      </div>
+      <!-- Main APP -->
+      <div class="main-app">
+        <div class="page-register-login">
+          <div class="main-app-cover"></div>
+          <!-- buttons -->
+          <div class="btns-wrapper">
+            <div class="btns">
+              <button class="btn-login" role="button">Login</button>
+              <button class="btn-register" role="button">register</button>
+              <div class="btn-checked"></div>
+            </div>
+          </div>
+          <!-- forms -->
+          <div class="forms">
+            <!-- Login Form -->
+            <form class="login-form">
+              <div class="formName-wrapper">
+                <em class="">Login Form</em>
+              </div>
+              <div class="wrapper-row">
+                <div class="box">
+                  <label for="email-login">Email:</label>
+                  <input type="text" id="email-login" />
+                  <p class="error-email-login"></p>
+                </div>
+              </div>
+              <div class="wrapper-row">
+                <div class="box">
+                  <label for="password-login">Password:</label>
+                  <input type="password" id="password-login" />
+                  <p class="error-password-login"></p>
+                  <div class="eyes-box">
+                    <i class="fa-solid fa-eye" id="opened-eye-pass-login"></i>
+                    <i
+                      class="fa-solid fa-eye-slash"
+                      id="closed-eye-pass-login"
+                    ></i>
+                    <div id="light-password-login"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wrapper-row">
+                <button type="submit" onclick="submitLoginHandler(event)">
+                  Login
+                </button>
+              </div>
+            </form>
+            <!-- Register Form -->
+            <form class="regForm">
+              <div class="formName-wrapper">
+                <em class="formName"></em><span class="letter"></span>
+              </div>
+              <div class="wrapper-row">
+                <div class="box">
+                  <label for="email-register">Email:</label>
+                  <input type="text" id="email-register" autocomplete="off" />
+                  <p class="error-email-register"></p>
+                </div>
+                <div class="box-show"></div>
+              </div>
+              <div class="wrapper-row">
+                <div class="box">
+                  <label for="password-register">Password:</label>
+                  <input type="password" id="password-register" />
+                  <p class="error-password-register"></p>
+                  <div class="eyes-box">
+                    <i
+                      class="fa-solid fa-eye"
+                      id="opened-eye-pass-register"
+                    ></i>
+                    <i
+                      class="fa-solid fa-eye-slash"
+                      id="closed-eye-pass-register"
+                    ></i>
+                    <div id="light-password-register"></div>
+                  </div>
+                </div>
+                <div class="box-show"></div>
+              </div>
+              <div class="wrapper-row">
+                <div class="box">
+                  <label for="confirm-password-register"
+                    >Confirm Password:</label
+                  >
+                  <input type="password" id="confirm-password-register" />
+                  <p class="error-confirm-password"></p>
+                  <div class="eyes-box">
+                    <i
+                      class="fa-solid fa-eye"
+                      id="opened-eye-confirm-pass-register"
+                    ></i>
+                    <i
+                      class="fa-solid fa-eye-slash"
+                      id="closed-eye-confirm-pass-register"
+                    ></i>
+                    <div id="light-confirm-password-register"></div>
+                  </div>
+                </div>
+                <div class="box-show"></div>
+              </div>
+              <div class="wrapper-row">
+                <button type="submit" onclick="submitRegisterHandler(event)">
+                  Register
+                </button>
+                <div class="box-show"></div>
+              </div>
+              <!-- <div class="home-phone"></div> -->
+            </form>
+          </div>
+        </div>
+        <!-- Contact with us -->
+        <div class="page-contact-with-us">
+          <h1>contact with us</h1>
+          <button class="btn-exit-account">Exit account</button>
+          <form class="contact-us-form">
+            <p class="email-Token">Email</p>
+            <div class="box-message">
+              <label>Message:</label>
+              <textarea id="message"></textarea>
+              <p class="error-contact"></p>
+            </div>
+            <button type="submit" onclick="btnExitAccountHandler(event)">
+              Send Message
+            </button>
+          </form>
+        </div>
+        <!-- Message Part -->
+        <div class="message-box">
+          <div class="message">hi</div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
